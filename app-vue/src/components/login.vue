@@ -4,8 +4,8 @@
 			<!-- <img src=""/> -->
 		</div>
 		<div class="login">
-			<mt-field class="uname" label="账号" placeholder="请输入您的用户名" @blur.native="Utest()"></mt-field>
-			<mt-field class="upwd" label="密码" placeholder="请输入您的用户名" @blur.native="Ptest()"></mt-field>
+			<mt-field class="uname" label="账号" placeholder="请输入您的用户名" v-model="username"></mt-field>
+			<mt-field type="password" class="upwd" label="密码" placeholder="请输入您的密码" v-model="password"></mt-field>
 			<div class="select">
 				<span class="userType">用户类型</span> 
 				<select class="option">
@@ -22,16 +22,31 @@
 </template>
 <script>
   export default{
-    data:{
-
+    data(){
+			return{
+				username:"",
+				password:""
+			}
     },
     methods:{
-      Utest(){
-        
-      },
-      Ptest(){},
       Login(){
-
+				var n=this.username;
+				var p=this.password;
+				var ureg=/^[a-z0-9]{6-12}$/i;
+				var preg=/^[a-z0-9]{3-10}$/i;
+				if(ureg.test(n)&&preg.test(p)){
+					this.$router.push('/index');
+				}else{
+					this.$messagebox("","用户名或者密码错误");
+				}
+				this.axios.get(
+					"login",
+					{
+						params:{username:n,password:p}
+					}
+				).then(res=>{
+					console.log(res);
+				})
       },
       reg(){
         this.$router.push('/reg');
