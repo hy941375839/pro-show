@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from './components/login.vue'
 import footer from './components/footer.vue'
-import food1 from "./components/food1.vue";
+import food1 from "./components/food1.vue"
 
 Vue.use(Router)
 

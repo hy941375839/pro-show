@@ -1,6 +1,17 @@
 <template>
 	<div>
-		<mt-tabbar fixed>
+		<mt-tab-container v-model="active">
+			<mt-tab-container-item id="index">
+
+			</mt-tab-container-item>
+			<mt-tab-container-item id="cart">
+
+			</mt-tab-container-item>
+			<mt-tab-container-item id="profile">
+				<profile></profile>
+			</mt-tab-container-item>
+		</mt-tab-container>
+		<mt-tabbar v-model="active" fixed>
         <mt-tab-item id="index" @click.native="changeState(0)">
          <tabbaricon
           :selectedImage="require('../assets/index-active.png')"
@@ -30,9 +41,11 @@
 </template>
 <script>
 	import changeImg from '../components/changeImg.vue'
+	import profile from '../components/profile.vue'
 	export default{
 		data(){
 			return{
+				active:"profile",
 				currentIndex:[
 					{isSelect:true},
 					{isSelect:false},
@@ -52,7 +65,8 @@
 			}
 		},
 		components:{
-			"tabbaricon":changeImg
+			"tabbaricon":changeImg,
+			"profile":profile
 		}
 	}
 </script>
