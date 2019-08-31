@@ -71,15 +71,16 @@ export default {
 <style scoped>
   .top{
     width:100%;
-    height:35px;
+    height:48px;
     display: flex;
     justify-content: space-between;
     background: #f5c443;
   }
   .topLeft{
-    width:20px;
-    height:18px;
+    width:30px;
+    height:30px;
     margin-top:8px;
+    font-size: 20/16rem;
   }
   .bigImg{
     width:95%;
@@ -88,7 +89,7 @@ export default {
   }
   .topName{
     position: relative;
-    top:-15px;
+    top:-7px;
     right: 35%;
   }
   .contain>h4{

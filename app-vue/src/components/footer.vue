@@ -2,7 +2,7 @@
 	<div>
 		<mt-tab-container v-model="active">
 			<mt-tab-container-item id="index">
-
+				<index></index>
 			</mt-tab-container-item>
 			<mt-tab-container-item id="cart">
 
@@ -42,10 +42,11 @@
 <script>
 	import changeImg from '../components/changeImg.vue'
 	import profile from '../components/profile.vue'
+	import index from '../components/cd.vue'
 	export default{
 		data(){
 			return{
-				active:"profile",
+				active:"index",
 				currentIndex:[
 					{isSelect:true},
 					{isSelect:false},
@@ -66,7 +67,8 @@
 		},
 		components:{
 			"tabbaricon":changeImg,
-			"profile":profile
+			"profile":profile,
+			"index":index
 		}
 	}
 </script>
